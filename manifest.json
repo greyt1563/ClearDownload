@@ -1,0 +1,326 @@
+{
+  "author": "ClearDownload",
+  "name": "ClearDownload",
+  "description": "__MSG_appDesc__",
+  "manifest_version": 3,
+  "default_locale": "en",
+  "permissions": [
+    "tabs",
+    "offscreen",
+    "downloads",
+    "sidePanel",
+    "scripting",
+    "storage",
+    "contextMenus"
+  ],
+  "optional_permissions": [
+    "browsingData",
+    "downloads.open",
+    "notifications"
+  ],
+  "host_permissions": [
+    "*://*.youtube.com/*",
+    "*://*.vimeo.com/*",
+    "*://*.facebook.com/*",
+    "*://*.instagram.com/*",
+    "*://*.ok.ru/*",
+    "*://*.m.ok.ru/*",
+    "*://*.vk.com/*",
+    "*://*.vk.ru/*",
+    "*://*.vkvideo.ru/*",
+    "*://*.canva.com/*",
+    "*://*.iq.com/*",
+    "*://*.twitcasting.tv/*",
+    "*://*.bilibili.tv/*",
+    "*://*.bilibili.com/*",
+    "*://*.taiav.com/*",
+    "*://*.osmosis.org/*",
+    "*://*.kick.com/*",
+    "*://*.chaturbate.com/*",
+    "*://*.chaturbate.eu/*",
+    "*://*.chaturbate.global/*",
+    "*://*.91porna.com/*",
+    "*://*.9n6gyt.umydsfs.cc/*"
+  ],
+  "icons": {
+    "128": "bitmaps/logo-128-nooutline.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  "action": {
+    "default_title": "ClearDownload",
+    "default_icon": {
+      "128": "bitmaps/logo-128-color.png"
+    }
+  },
+  "commands": {
+    "default-action": {
+      "description": "Execute default action",
+      "suggested_key": {
+        "default": "Alt+Down",
+        "mac": "Ctrl+Shift+Down"
+      }
+    },
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+Up",
+        "mac": "Ctrl+Shift+Up"
+      }
+    }
+  },
+  "background": {
+    "type": "module",
+    "service_worker": "service/main.js"
+  },
+  "content_scripts": [
+    {
+      "world": "ISOLATED",
+      "matches": [
+        "*://*.youtube.com/*"
+      ],
+      "js": [
+        "injected/youtube.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "world": "MAIN",
+      "matches": [
+        "*://*.youtube.com/*"
+      ],
+      "js": [
+        "injected/youtube_untrusted.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "world": "ISOLATED",
+      "matches": [
+        "*://*.vimeo.com/*"
+      ],
+      "js": [
+        "injected/vimeo.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "world": "MAIN",
+      "matches": [
+        "*://*.vimeo.com/*"
+      ],
+      "js": [
+        "injected/vimeo_untrusted.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "world": "ISOLATED",
+      "matches": [
+        "*://*.facebook.com/*",
+        "*://*.instagram.com/*"
+      ],
+      "js": [
+        "injected/facebook.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "world": "ISOLATED",
+      "matches": [
+        "*://*.ok.ru/*",
+        "*://*.m.ok.ru/*"
+      ],
+      "js": [
+        "injected/ok.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "world": "ISOLATED",
+      "matches": [
+        "*://*.vk.com/*",
+        "*://*.vk.ru/*",
+        "*://*.vkvideo.ru/*",
+        "*://live.vkvideo.ru/*"
+      ],
+      "js": [
+        "injected/vk.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "world": "ISOLATED",
+      "matches": [
+        "*://*.canva.com/*"
+      ],
+      "js": [
+        "injected/canva.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "world": "ISOLATED",
+      "matches": [
+        "*://*.iq.com/*"
+      ],
+      "js": [
+        "injected/iq.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "world": "MAIN",
+      "matches": [
+        "*://*.iq.com/*"
+      ],
+      "js": [
+        "injected/iq_untrusted.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "world": "ISOLATED",
+      "matches": [
+        "*://*.twitcasting.tv/*"
+      ],
+      "js": [
+        "injected/twitcasting.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "world": "ISOLATED",
+      "matches": [
+        "*://*.bilibili.tv/*",
+        "*://*.bilibili.com/*"
+      ],
+      "js": [
+        "injected/bilibili.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "world": "MAIN",
+      "matches": [
+        "*://*.bilibili.tv/*",
+        "*://*.bilibili.com/*"
+      ],
+      "js": [
+        "injected/bilibili_untrusted.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "world": "MAIN",
+      "matches": [
+        "*://*.taiav.com/*"
+      ],
+      "js": [
+        "injected/taiav.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "world": "ISOLATED",
+      "matches": [
+        "*://*.osmosis.org/*"
+      ],
+      "js": [
+        "injected/osmosis.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "world": "ISOLATED",
+      "matches": [
+        "*://*.kick.com/*"
+      ],
+      "js": [
+        "injected/kick.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "world": "ISOLATED",
+      "matches": [
+        "*://*.chaturbate.com/*",
+        "*://*.chaturbate.eu/*",
+        "*://*.chaturbate.global/*"
+      ],
+      "js": [
+        "injected/chaturbate.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "world": "ISOLATED",
+      "matches": [
+        "*://*.91porna.com/*",
+        "*://*.9n6gyt.umydsfs.cc/*"
+      ],
+      "js": [
+        "injected/xgplayer_crypto.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "world": "MAIN",
+      "matches": [
+        "*://*.91porna.com/*",
+        "*://*.9n6gyt.umydsfs.cc/*"
+      ],
+      "js": [
+        "injected/xgplayer_crypto_untrusted.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "side_panel": {
+    "default_title": "ClearDownload",
+    "default_path": "/content/sidebar.html",
+    "default_icon": {
+      "128": "bitmaps/logo-128-color.png"
+    }
+  },
+<<<<<<< HEAD
+  "version": "1.0.0.0",
+  "homepage_url": "https://cleardownload.rf.gd/"
+=======
+  "version": "1.1.1",
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "factory/factory.html",
+        "factory/factory.js",
+        "download_worker/*.js",
+        "download_worker/*.wasm",
+        "service/*.wasm",
+        "local_ruleset/*.json"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+>>>>>>> b3568a81ea9f50187203da2d2b3ea13cebd940f4
+}

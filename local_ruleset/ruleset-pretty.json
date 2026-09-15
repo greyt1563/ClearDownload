@@ -1,0 +1,45 @@
+{
+    "schema_version": 2,
+    "rules_revision": "10.5.25.2-local",
+    "patterns": [
+        { "regex": "\\\\.mp4", "flags": "gi", "type": "video/mp4" },
+        { "regex": "\\\\.webm", "flags": "gi", "type": "video/webm" },
+        { "regex": "\\\\.m3u8", "flags": "gi", "type": "application/x-mpegURL" },
+        { "regex": "\\\\.mpd", "flags": "gi", "type": "application/dash+xml" },
+        { "regex": "\\\\.mov", "flags": "gi", "type": "video/quicktime" },
+        { "regex": "\\\\.mp3", "flags": "gi", "type": "audio/mpeg" }
+    ],
+    "sites": ["youtube.com", "vimeo.com", "facebook.com", "instagram.com"],
+    "detection": {
+        "youtube.com": {
+            "selectors": ["video", "[src*=.mp4]", "[src*=.webm]"],
+            "patterns": ["googlevideo\\\\.com"]
+        },
+        "vimeo.com": {
+            "selectors": ["video", "[data-config-url]"],
+            "patterns": ["vimeocdn\\\\.com"]
+        },
+        "facebook.com": {
+            "selectors": ["video"],
+            "patterns": []
+        },
+        "instagram.com": {
+            "selectors": ["video"],
+            "patterns": []
+        }
+    },
+    "download": {
+        "youtube.com": {
+            "selectors": ["video"]
+        },
+        "vimeo.com": {
+            "selectors": ["video"]
+        },
+        "facebook.com": {
+            "selectors": ["video"]
+        },
+        "instagram.com": {
+            "selectors": ["video"]
+        }
+    }
+}
