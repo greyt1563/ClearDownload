@@ -62,11 +62,7 @@ ClearDownload supports media detection and download from:
 
 ### Option 2: Install from ZIP Release
 
-<<<<<<< HEAD
 1. Download the release ZIP file: [ClearDownload-v1.0.0.0.zip](./release/ClearDownload-v1.0.0.0.zip)
-=======
-1. Download the release ZIP file: [ClearDownload-v1.1.1.zip](./release/ClearDownload-v1.1.1.zip)
->>>>>>> b3568a81ea9f50187203da2d2b3ea13cebd940f4
 2. Extract the ZIP to a folder on your computer
 3. Follow steps 1-4 from "Load Unpacked Extension" above, selecting the extracted folder
 
@@ -283,12 +279,8 @@ This creates a ZIP release in the `release/` directory.
 
 **Release Artifacts:**
 
-<<<<<<< HEAD
 - **ZIP Package**: [ClearDownload-v1.0.0.0.zip](./release/ClearDownload-v1.0.0.0.zip)
-=======
-- **ZIP Package**: [ClearDownload-v1.1.1.zip](./release/ClearDownload-v1.1.1.zip)
->>>>>>> b3568a81ea9f50187203da2d2b3ea13cebd940f4
-- **SHA-256 Checksum**: [SHA256SUMS.txt](./release/SHA256SUMS.txt)
+
 
 **Checksum Verification:**
 
@@ -297,11 +289,7 @@ cd release
 sha256sum -c SHA256SUMS.txt
 ```
 
-<<<<<<< HEAD
 Expected output: `ClearDownload-v1.0.0.0.zip: OK`
-=======
-Expected output: `ClearDownload-v1.1.1.zip: OK`
->>>>>>> b3568a81ea9f50187203da2d2b3ea13cebd940f4
 
 ### CRX Packaging Status
 

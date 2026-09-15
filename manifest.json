@@ -302,25 +302,6 @@
       "128": "bitmaps/logo-128-color.png"
     }
   },
-<<<<<<< HEAD
   "version": "1.0.0.0",
   "homepage_url": "https://cleardownload.rf.gd/"
-=======
-  "version": "1.1.1",
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "factory/factory.html",
-        "factory/factory.js",
-        "download_worker/*.js",
-        "download_worker/*.wasm",
-        "service/*.wasm",
-        "local_ruleset/*.json"
-      ],
-      "matches": [
-        "<all_urls>"
-      ]
-    }
-  ]
->>>>>>> b3568a81ea9f50187203da2d2b3ea13cebd940f4
 }
