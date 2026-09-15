@@ -5,13 +5,15 @@
   "manifest_version": 3,
   "default_locale": "en",
   "permissions": [
-    "tabs",
-    "offscreen",
-    "downloads",
-    "sidePanel",
-    "scripting",
-    "storage",
-    "contextMenus"
+      "tabs",
+      "webRequest",
+      "webNavigation",
+      "offscreen",
+      "downloads",
+      "sidePanel",
+      "scripting",
+      "storage",
+      "contextMenus"
   ],
   "optional_permissions": [
     "browsingData",
@@ -19,6 +21,7 @@
     "notifications"
   ],
   "host_permissions": [
+    "<all_urls>",
     "*://*.youtube.com/*",
     "*://*.vimeo.com/*",
     "*://*.facebook.com/*",
